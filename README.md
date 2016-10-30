@@ -9,3 +9,6 @@ The project consists of an online platform that allows the sale of new books or 
  * Luis Miguel Mejía Suárez
 
 Universidad EAFIT - 2016 (Tópicos Especiales en Ingeniería de Software)
+
+#Disclaimer
+This project uses the FuelPHP Framework
