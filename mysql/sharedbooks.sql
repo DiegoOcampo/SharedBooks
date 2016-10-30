@@ -25,7 +25,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 DROP TABLE IF EXISTS `cities`;
 CREATE TABLE IF NOT EXISTS `cities` (
   `city_id` INT NOT NULL AUTO_INCREMENT,
-  `name` NVARCHAR(45) NOT NULL,
+  `name` NVARCHAR(15) NOT NULL,
   PRIMARY KEY (`city_id`),
   UNIQUE INDEX `city_id_UNIQUE` (`city_id` ASC),
   UNIQUE INDEX `city_name_UNIQUE` (`name` ASC))
@@ -37,12 +37,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
-  `email` NVARCHAR(45) NOT NULL COMMENT 'Must be a valid email address',
+  `email` NVARCHAR(50) NOT NULL COMMENT 'Must be a valid email address',
   `password` BINARY(32) NOT NULL COMMENT 'md5 hash',
   `profile_img` MEDIUMBLOB NOT NULL,
   `real_name` NVARCHAR(50) NOT NULL,
   `city_id` INT NOT NULL,
-  `address` NVARCHAR(45) NOT NULL COMMENT 'the address where the user wants to receive the books he buys',
+  `address` NVARCHAR(50) NOT NULL COMMENT 'the address where the user wants to receive the books he buys',
   PRIMARY KEY (`user_id`),
   UNIQUE INDEX `user_id_UNIQUE` (`user_id` ASC),
   UNIQUE INDEX `user_email_UNIQUE` (`email` ASC),
@@ -60,7 +60,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
-  `name` NVARCHAR(15) NOT NULL,
+  `name` NVARCHAR(25) NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE INDEX `category_id_UNIQUE` (`category_id` ASC),
   UNIQUE INDEX `category_name_UNIQUE` (`name` ASC))
@@ -73,8 +73,8 @@ DROP TABLE IF EXISTS `books`;
 CREATE TABLE IF NOT EXISTS `books` (
   `book_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `name` NVARCHAR(45) NOT NULL,
-  `author` NVARCHAR(45) NOT NULL,
+  `name` NVARCHAR(50) NOT NULL,
+  `author` NVARCHAR(50) NOT NULL,
   `is_new` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '1 is new, 0 is second hand',
   `category_id` INT NOT NULL,
   `price` INT NOT NULL DEFAULT 0 COMMENT 'colombian pesos',
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `sales` (
   `user_id` INT NOT NULL COMMENT 'user who buys the book',
   `units` INT NOT NULL DEFAULT 1 COMMENT 'the number of units of the book that were bought',
   `sale_date` DATE NOT NULL,
-  `sale_total` VARCHAR(45) NULL COMMENT 'the total price of the sale',
+  `sale_total` INT NULL COMMENT 'the total price of the sale',
   PRIMARY KEY (`sales_id`, `book_id`, `book_user_id`, `user_id`),
   UNIQUE INDEX `sales_id_UNIQUE` (`sales_id` ASC),
   INDEX `fk_sales_books_idx` (`book_id` ASC, `book_user_id` ASC),
