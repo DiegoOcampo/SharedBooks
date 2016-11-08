@@ -23,7 +23,7 @@ class Controller_Book extends Controller {
 	public function action_create() {
 		if(!$user = Session::get('userInfo')){
             echo '<script>alert("Please log in first");</script>';
-            Response::redirect('/', 'location');
+            Response::redirect('/', 'refresh');
         }
 
 		$data = array('data' => array('categories' => BookModel::getCategories()));

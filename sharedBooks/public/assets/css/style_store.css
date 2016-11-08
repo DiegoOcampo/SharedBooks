@@ -697,10 +697,12 @@ footer a{
 #prices {
     width: 80%;
 
+    margin: 10px;
+
 }
 
 #prices input {
-    margin: 10px;
+    margin-bottom: 15px;
 }
 
 #book {
