@@ -17,7 +17,7 @@
 -- -----------------------------------------------------
 -- Most important colombian cities
 -- -----------------------------------------------------
-INSERT INTO cities (name) VALUES
+INSERT INTO cities (city) VALUES
 ('Bogotá'), ('Medellín'), ('Cali'), ('Barranquilla'), ('Cartagena'),
 ('Cúcuta'), ('Soledad'), ('Ibagué'), ('Bucaramanga'), ('Soacha'),
 ('Santa Marta'), ('Villavicencio'), ('Bello'), ('Pereira'), ('Valledupar'),
@@ -26,7 +26,7 @@ INSERT INTO cities (name) VALUES
 -- -----------------------------------------------------
 -- Most important colombian cities
 -- -----------------------------------------------------
-INSERT INTO categories (name) VALUES
+INSERT INTO categories (category) VALUES
 ('Arts & Photography'), ('Biographies & Memoirs'), ('Children\'s Books'),
 ('Cookbooks, Food & Wine'), ('History'), ('Literature & Fiction'),
 ('Mistery & Suspense'), ('Romance'), ('Sci-Fi & Fantasy'), ('Teens & Young Adult');

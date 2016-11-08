@@ -25,10 +25,12 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 DROP TABLE IF EXISTS `cities`;
 CREATE TABLE IF NOT EXISTS `cities` (
   `city_id` INT NOT NULL AUTO_INCREMENT,
-  `name` NVARCHAR(15) NOT NULL,
+  `city` NVARCHAR(15) NOT NULL,
   PRIMARY KEY (`city_id`),
   UNIQUE INDEX `city_id_UNIQUE` (`city_id` ASC),
-  UNIQUE INDEX `city_name_UNIQUE` (`name` ASC))
+  UNIQUE INDEX `city_name_UNIQUE` (`city` ASC))
+DEFAULT CHARACTER SET utf8
+COLLATE utf8_general_ci
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -39,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `email` NVARCHAR(50) NOT NULL COMMENT 'Must be a valid email address',
   `password` BINARY(32) NOT NULL COMMENT 'md5 hash',
-  `profile_img` MEDIUMBLOB NOT NULL,
+  `profile_img` MEDIUMBLOB NULL,
   `real_name` NVARCHAR(50) NOT NULL,
   `city_id` INT NOT NULL,
   `address` NVARCHAR(50) NOT NULL COMMENT 'the address where the user wants to receive the books he buys',
@@ -52,6 +54,8 @@ CREATE TABLE IF NOT EXISTS `users` (
     REFERENCES `cities` (`city_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+DEFAULT CHARACTER SET utf8
+COLLATE utf8_general_ci
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -60,10 +64,12 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `category_id` INT NOT NULL AUTO_INCREMENT,
-  `name` NVARCHAR(25) NOT NULL,
+  `category` NVARCHAR(25) NOT NULL,
   PRIMARY KEY (`category_id`),
   UNIQUE INDEX `category_id_UNIQUE` (`category_id` ASC),
-  UNIQUE INDEX `category_name_UNIQUE` (`name` ASC))
+  UNIQUE INDEX `category_name_UNIQUE` (`category` ASC))
+DEFAULT CHARACTER SET utf8
+COLLATE utf8_general_ci
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -77,6 +83,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `author` NVARCHAR(50) NOT NULL,
   `is_new` TINYINT(1) NOT NULL DEFAULT 1 COMMENT '1 is new, 0 is second hand',
   `category_id` INT NOT NULL,
+  `img` MEDIUMBLOB NULL,
   `price` INT NOT NULL DEFAULT 0 COMMENT 'colombian pesos',
   `preview` NVARCHAR(255) NOT NULL COMMENT 'Link to a pdf with the book preview',
   `quantity` INT NOT NULL DEFAULT 1,
@@ -96,6 +103,8 @@ CREATE TABLE IF NOT EXISTS `books` (
     REFERENCES `categories` (`category_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+DEFAULT CHARACTER SET utf8
+COLLATE utf8_general_ci
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -124,6 +133,8 @@ CREATE TABLE IF NOT EXISTS `sales` (
     REFERENCES `users` (`user_id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
+DEFAULT CHARACTER SET utf8
+COLLATE utf8_general_ci
 ENGINE = InnoDB;
 
 SET SQL_MODE=@OLD_SQL_MODE;
