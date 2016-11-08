@@ -15,9 +15,6 @@
    * limitations under the License.
    */
 
-  //Add support for utf-8 charset
-  //header("content-type: text/html; charset=UTF-8");
-
   //Import the user model and dto
   use \Model\UserModel;
   use \Model\UserDTO;
@@ -93,30 +90,6 @@
       }
     }
 
-    /**public function action_index() {
-      $view = View::forge('welcome/list');
-      $booksDTO = BookModel::getAll();
-      //print_r(self::test($booksDTO[0]));
-      $books = array_map(function ($b){return $b->toArray();}, $booksDTO);
-      $view->books = $books;
-      return $view;
-    }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * The 404 action for the application.
      * @access  public
@@ -125,41 +98,5 @@
     public function action_404() {
       return Response::forge(Presenter::forge('welcome/404'), 404);
     }
-
-    public function action_newbook() {
-      return Response::forge(View::forge('welcome/newBook'));
-    }
-
-    /*public function action_index() {
-    $user = UserModel::getUser('email2@mail.com', '321');
-    $view = View::forge('welcome/list');
-    $view->id = $user->getId();
-    return $view;*/
-
-    /**$cities = UserModel::getCities();
-    foreach($cities as $city) {
-    echo "City => " . $city['name'] . " | ";
-    }*/
-
-    /**
-    $user = new UserDTO();
-    $user->setEmail('email2@mail.com');
-    $user->setName('Luis');
-    $user->setCity('Medellín');
-    $user->setAddress('Calle Falsa 123');
-    $result = UserModel::registerUser($user, '123');
-    echo 'exito ' . $result;*/
-
-    //$result = UserModel::changePassword(3, '321');
-    //echo 'exito ' . $result;
-
-    /**
-    $user = new UserDTO();
-    $user->setId(2);
-    $user->setCity('Bogotá');
-    $user->setAddress('Calle Falsa 333');
-    $result = UserModel::updateUser($user);
-    echo 'exito ' . $result;*/
-    //}
   }
 ?>

@@ -83,9 +83,7 @@
 					  		<input id="author" name="author" class="form-control"  placeholder="Edgar Allan Poe" style="display: none;"/>
 						<input id="r3" type="radio" name="radioButton" value=3 onclick="search()"> Price<br>
 						<div id="prices" style="display: none;">
-							<label for="priceL">Mininum Price:</label>
 							<input type="number" id="priceL" name="priceL" class="form-control"  placeholder="$60000"/>
-							<label for="priceU">Maximum Price:</label>
 					  		<input type="number" id="priceU" name="priceU" class="form-control"  placeholder="$170000"/>
 						</div>
 						<p class="signin">
