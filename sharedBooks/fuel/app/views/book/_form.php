@@ -67,13 +67,13 @@
   //img
   echo '<p>';
     echo Form::label('Image', 'imagenewbook', array('class'=>'uname', 'data-icon' => 'i'));
-    echo Form::file('imagenewbook',  array('size'=>'250', 'required'=>'required'));
+    echo Form::file('imagenewbook',  array('size'=>'150', 'required'=>'required'));
   echo '</p>';
 
   //preview
   echo '<p>';
     echo Form::label('Preview', 'pewviewnewbook', array('class'=>'uname', 'data-icon' => 'f'));
-    echo Form::file('previewnewbook',  array('size'=>'250', 'required'=>'required'));
+    echo Form::file('previewnewbook',  array('size'=>'500', 'required'=>'required'));
   echo '</p>';
 
   //back & submit

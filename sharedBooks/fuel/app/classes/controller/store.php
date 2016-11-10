@@ -43,13 +43,25 @@ class Controller_Store extends Controller {
             $resultDTO = BookModel::searchByCategory($category);;
         }else if($radioButton == 1){
             $author = Input::post("author");
+            if($author == ""){
+                echo '<script>alert("Please fill at least one field");</script>';
+                Response::redirect('/', 'refresh');
+            }
             $resultDTO = BookModel::searchByAuthor($author);
         }else if($radioButton == 2){
             $name = Input::post("name");
+            if($name == ""){
+                echo '<script>alert("Please fill at least one field");</script>';
+                Response::redirect('/', 'refresh');
+            }
             $resultDTO = BookModel::searchByName($name);
         }else if($radioButton == 3){
             $priceL = Input::post("priceL");
             $priceU = Input::post("priceU");
+            if($priceL == "" and $priceU == ""){
+                echo '<script>alert("Please fill one field");</script>';
+                Response::redirect('/', 'refresh');
+            }
             $resultDTO = BookModel::searchByPrice($priceL, $priceU);
         }else{
             Response::redirect_back('/', 'refresh');

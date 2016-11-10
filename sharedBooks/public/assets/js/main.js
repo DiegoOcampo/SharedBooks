@@ -1,31 +1,3 @@
-/*$(window).load(function() {
-
-    $('#slider').nivoSlider({
-
-        effect:'random',
-
-        slices:15,
-
-        boxCols:8,
-
-        boxRows:8,
-
-        animSpeed:500,
-
-        pauseTime:4000,
-
-        directionNav:false,
-
-        directionNavHide:false,
-
-        controlNav:false,
-
-        captionOpacity:1
-
-    });
-
-});*/
-
 function search(){
 
     var in0 = document.getElementById("categorynewbook");
@@ -78,36 +50,4 @@ function search(){
             in3.style.display="none"
         }
     }
-}
-
-function description(a){
-
-    var e = document.getElementById(a);
-
-    if(!e) return false;
-
-    if(e.style.display=="none"){
-
-        e.style.display="block"
-    }else{
-
-        e.style.display="none"
-    }
-
-    return true;
-
-}
-
-function name(comprado, a){
-    var e = document.getElementById(a);
-
-    if(!e) return false;
-
-    if(comprado == "si"){
-        e.textContent = "Purchased";
-    }else if(comprado = "no"){
-        e.textContent = "Buy";
-    }
-
-    return true;
 }
